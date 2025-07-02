@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c78i7m3xqkm3v"]
+
+[ext_resource type="PackedScene" uid="uid://c616e8ko15gi4" path="res://scenes/player.tscn" id="1_x5nem"]
+[ext_resource type="Texture2D" uid="uid://dch0y1d7xci4d" path="res://assets/sprites/background_tests.jpg" id="1_y150f"]
+
+[node name="map_test" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_y150f")
+
+[node name="player" parent="." instance=ExtResource("1_x5nem")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
